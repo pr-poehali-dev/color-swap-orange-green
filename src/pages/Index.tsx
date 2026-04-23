@@ -1,7 +1,9 @@
 import Icon from '@/components/ui/icon';
 
-const IMG_HERO = 'https://cdn.poehali.dev/projects/600d4174-1b44-4799-92ac-2895e57c0d83/files/4f09f57e-9139-4357-9217-897279a8e46a.jpg';
-const IMG_WORK = 'https://cdn.poehali.dev/projects/600d4174-1b44-4799-92ac-2895e57c0d83/files/3fd0de39-372e-410b-8d79-e7d708cde6e9.jpg';
+// Реальные фото с sweeper-mmk.ru
+const IMG_HERO = 'https://i.1.creatium.io/36/ff/75/90f24c55129217062c1c1024b07eebab15/mg_2584_1.jpg';
+const IMG_MMK1500 = 'https://i.1.creatium.io/51/4b/2f/8336dc68c90523baebc50c29a962037168/mg_2430_1.jpg';
+const IMG_MMK1000 = 'https://i.1.creatium.io/d0/97/83/eac6643a83d64c3e74fb7975443942bbd9/mg_2498_1.jpg';
 
 const navLinks = [
   { label: 'Преимущества', href: '#advantages' },
@@ -14,7 +16,7 @@ const navLinks = [
 const heroPoints = [
   { icon: 'Maximize2', title: 'Компактные размеры', desc: 'Привод 4×4, эффективна на парках, тротуарах, дворах' },
   { icon: 'Wallet', title: 'Экономичность', desc: 'Минимальные цены на запчасти и обслуживание' },
-  { icon: 'Wrench', title: 'Сервис от производителя', desc: 'Выезд специалиста с завода для настройки и обучения' },
+  { icon: 'Wrench', title: 'Сервис от дилера', desc: 'Полное сопровождение сделки и постпродажный сервис' },
 ];
 
 const attachments = [
@@ -56,7 +58,7 @@ const advantages = [
   },
   {
     title: 'Гарантия и сервис',
-    desc: 'Специалист завода выезжает на место для наладки и обучения персонала. Минимальные цены на оригинальные запчасти.',
+    desc: 'АО «Автобау» — официальный дилер с собственным сервисным центром и складом запчастей. Выезд специалиста по Москве и МО.',
     icon: 'BadgeCheck',
   },
 ];
@@ -92,6 +94,13 @@ const applications = [
   { title: 'Аэропорты и ж/д', desc: 'Расчистка перронов и служебных проездов в любое время суток' },
 ];
 
+// Контакты АО Автобау
+const phones = [
+  { label: 'Дорожные и коммунальные машины', number: '+7 (499) 290-08-20', href: 'tel:+74992900820', primary: true },
+  { label: 'ТО подметальных машин', number: '+7 (903) 796-62-62', href: 'tel:+79037966262', primary: false },
+  { label: 'Главный офис', number: '+7 (499) 112-11-05', href: 'tel:+74991121105', primary: false },
+];
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "'Montserrat', 'Open Sans', sans-serif" }} className="bg-white text-gray-800">
@@ -102,7 +111,7 @@ export default function Index() {
           <div className="flex items-center gap-3">
             <div>
               <div className="text-orange-400 font-black text-lg tracking-wide leading-tight">Sweeper ММК</div>
-              <div className="text-gray-400 text-xs">ОАО СМЗ Элеватормельмаш</div>
+              <div className="text-gray-400 text-xs">АО «Автобау» — официальный дилер</div>
             </div>
           </div>
           <nav className="hidden lg:flex gap-5">
@@ -117,14 +126,11 @@ export default function Index() {
             ))}
           </nav>
           <div className="flex flex-col items-end gap-0.5">
-            <a href="tel:89063199644" className="flex items-center gap-1.5 text-white hover:text-orange-400 transition-colors font-bold text-sm">
+            <a href="tel:+74992900820" className="flex items-center gap-1.5 text-white hover:text-orange-400 transition-colors font-bold text-sm">
               <Icon name="Phone" size={14} />
-              8 906 319-96-44
+              +7 (499) 290-08-20
             </a>
-            <a href="tel:88452294171" className="flex items-center gap-1.5 text-gray-300 hover:text-orange-400 transition-colors text-xs">
-              <Icon name="Phone" size={12} />
-              8 8452 29-41-71
-            </a>
+            <div className="text-gray-400 text-xs">Коммунальные машины</div>
           </div>
         </div>
       </header>
@@ -134,7 +140,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 py-14 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded mb-5 tracking-wider uppercase">
-              Производитель — ОАО СМЗ Элеватормельмаш
+              АО «Автобау» — официальный дилер в Москве
             </div>
             <h1 className="font-black text-3xl md:text-4xl xl:text-5xl text-gray-900 leading-tight mb-5">
               Подметальная вакуумная<br />
@@ -178,7 +184,7 @@ export default function Index() {
             <img
               src={IMG_HERO}
               alt="Sweeper ММК"
-              className="rounded-2xl shadow-2xl w-full object-cover aspect-square"
+              className="rounded-2xl shadow-2xl w-full object-cover"
             />
             <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-5 py-3 rounded-xl shadow-lg font-bold text-sm text-center">
               Привод 4×4<br /><span className="text-xs font-normal text-orange-100">Клиренс 210 мм</span>
@@ -267,14 +273,20 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* ММК-1500 */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-              <div className="bg-orange-500 px-6 py-4 flex items-center justify-between">
-                <div>
-                  <div className="text-orange-100 text-xs uppercase tracking-widest">Флагманская модель</div>
+              <div className="relative overflow-hidden" style={{ height: '240px' }}>
+                <img
+                  src={IMG_MMK1500}
+                  alt="Sweeper ММК-1500"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-5">
+                  <div className="text-orange-300 text-xs uppercase tracking-widest mb-0.5">Флагманская модель</div>
                   <h3 className="text-white font-black text-2xl">Sweeper ММК-1500</h3>
                 </div>
-                <div className="bg-white bg-opacity-20 rounded-xl px-4 py-2 text-center">
-                  <div className="text-white font-black text-xl">1,5</div>
-                  <div className="text-orange-100 text-xs">куб.м бак</div>
+                <div className="absolute top-4 right-4 bg-orange-500 text-white rounded-xl px-3 py-2 text-center">
+                  <div className="font-black text-xl leading-none">1,5</div>
+                  <div className="text-orange-100 text-xs">куб.м</div>
                 </div>
               </div>
               <div className="p-6">
@@ -294,14 +306,20 @@ export default function Index() {
 
             {/* ММК-1000 */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-              <div className="bg-gray-800 px-6 py-4 flex items-center justify-between">
-                <div>
-                  <div className="text-gray-400 text-xs uppercase tracking-widest">Базовая модель</div>
+              <div className="relative overflow-hidden" style={{ height: '240px' }}>
+                <img
+                  src={IMG_MMK1000}
+                  alt="Sweeper ММК-1000"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-5">
+                  <div className="text-gray-400 text-xs uppercase tracking-widest mb-0.5">Базовая модель</div>
                   <h3 className="text-white font-black text-2xl">Sweeper ММК-1000</h3>
                 </div>
-                <div className="bg-white bg-opacity-10 rounded-xl px-4 py-2 text-center">
-                  <div className="text-white font-black text-xl">1,0</div>
-                  <div className="text-gray-400 text-xs">куб.м бак</div>
+                <div className="absolute top-4 right-4 bg-gray-700 text-white rounded-xl px-3 py-2 text-center">
+                  <div className="font-black text-xl leading-none">1,0</div>
+                  <div className="text-gray-400 text-xs">куб.м</div>
                 </div>
               </div>
               <div className="p-6">
@@ -350,7 +368,7 @@ export default function Index() {
           </div>
           <div>
             <img
-              src={IMG_WORK}
+              src={IMG_HERO}
               alt="Sweeper ММК в работе"
               className="rounded-2xl shadow-2xl w-full object-cover"
             />
@@ -465,61 +483,64 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Контакты */}
-            <div className="space-y-5">
+            {/* Контакты АО Автобау */}
+            <div className="space-y-4">
               <div className="bg-orange-500 rounded-2xl p-6 text-white">
-                <div className="font-bold text-lg mb-1">Позвоните нам</div>
-                <a href="tel:89063199644" className="block text-2xl font-black hover:text-orange-100 transition-colors">
-                  8 906 319-96-44
-                </a>
-                <a href="tel:88452294171" className="block text-base font-semibold text-orange-100 hover:text-white transition-colors mt-1">
-                  8 8452 29-41-71
-                </a>
-                <div className="text-orange-200 text-sm mt-3">Пн–Пт: 9:00 – 18:00</div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Building2" size={20} className="text-orange-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-0.5">Производитель</div>
-                    <div className="font-bold text-gray-900 text-sm">ОАО СМЗ Элеватормельмаш</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="MapPin" size={20} className="text-orange-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-0.5">Адрес</div>
-                    <div className="font-semibold text-gray-900 text-sm">г. Саратов, Россия</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Globe" size={20} className="text-orange-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-0.5">Сайт</div>
-                    <a href="https://sweeper-mmk.ru" className="font-semibold text-orange-500 hover:text-orange-600 text-sm transition-colors">
-                      sweeper-mmk.ru
-                    </a>
-                  </div>
+                <div className="text-orange-100 text-xs uppercase tracking-widest mb-1">Официальный дилер</div>
+                <div className="font-black text-xl mb-4">АО «Автобау»</div>
+                <div className="space-y-2">
+                  {phones.map(p => (
+                    <div key={p.href}>
+                      <div className="text-orange-200 text-xs">{p.label}</div>
+                      <a href={p.href} className={`block font-bold hover:text-orange-100 transition-colors ${p.primary ? 'text-xl' : 'text-base'}`}>
+                        {p.number}
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-9 h-9 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="MapPin" size={18} className="text-orange-500" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Офис продаж</div>
+                    <div className="font-semibold text-gray-900 text-sm">117465, Москва, ул. Генерала Тюленева, д.4А, стр.3</div>
+                    <div className="text-xs text-gray-400 mt-0.5">м. Тёплый стан</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-9 h-9 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Mail" size={18} className="text-orange-500" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Email</div>
+                    <a href="mailto:service@autobau.ru" className="font-semibold text-orange-500 hover:text-orange-600 text-sm transition-colors">service@autobau.ru</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Clock" size={18} className="text-orange-500" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Режим работы</div>
+                    <div className="font-semibold text-gray-900 text-sm">Пн–Пт: 9:00 – 18:00</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                  <Icon name="Truck" size={24} className="text-orange-500 mx-auto mb-2" />
+                  <Icon name="Truck" size={22} className="text-orange-500 mx-auto mb-1.5" />
                   <div className="text-xs font-bold text-gray-900">Доставка</div>
                   <div className="text-xs text-gray-500 mt-0.5">По всей России</div>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                  <Icon name="Wrench" size={24} className="text-orange-500 mx-auto mb-2" />
+                  <Icon name="Wrench" size={22} className="text-orange-500 mx-auto mb-1.5" />
                   <div className="text-xs font-bold text-gray-900">Сервис</div>
-                  <div className="text-xs text-gray-500 mt-0.5">Выезд специалиста</div>
+                  <div className="text-xs text-gray-500 mt-0.5">Собственный центр</div>
                 </div>
               </div>
             </div>
@@ -532,15 +553,16 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <div className="text-orange-400 font-black text-lg">Sweeper ММК</div>
-            <div className="text-sm mt-1">ОАО СМЗ Элеватормельмаш</div>
+            <div className="text-sm mt-0.5">АО «Автобау» — официальный дилер</div>
             <div className="text-xs mt-1">© 2024. Все права защищены.</div>
           </div>
-          <div className="flex flex-col items-center gap-1">
-            <a href="tel:89063199644" className="text-white font-bold hover:text-orange-400 transition-colors">
-              8 906 319-96-44
+          <div className="flex flex-col items-center gap-1 text-center">
+            <a href="tel:+74992900820" className="text-white font-bold hover:text-orange-400 transition-colors">
+              +7 (499) 290-08-20
             </a>
-            <a href="tel:88452294171" className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
-              8 8452 29-41-71
+            <div className="text-gray-500 text-xs">Дорожные и коммунальные машины</div>
+            <a href="mailto:service@autobau.ru" className="text-gray-400 text-sm hover:text-orange-400 transition-colors mt-1">
+              service@autobau.ru
             </a>
           </div>
           <div className="flex gap-4 flex-wrap justify-center">
