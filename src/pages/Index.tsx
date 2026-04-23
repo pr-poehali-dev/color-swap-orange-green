@@ -20,14 +20,14 @@ const heroPoints = [
 ];
 
 const attachments = [
-  { label: 'Снегоотвал', icon: '❄️' },
-  { label: 'Снегоочиститель', icon: '💨' },
-  { label: 'Пескоразбрасыватель', icon: '🌱' },
-  { label: 'Щётки передние', icon: '🔄' },
-  { label: 'Щётки задние', icon: '🔄' },
-  { label: 'Реагенты', icon: '🧪' },
-  { label: 'Поливомойка', icon: '💧' },
-  { label: 'Бак 500 л', icon: '📦' },
+  { label: 'Снегоотвал', icon: 'Shovel' },
+  { label: 'Снегоочиститель', icon: 'Wind' },
+  { label: 'Пескоразбрасыватель', icon: 'Sprout' },
+  { label: 'Щётки передние', icon: 'RotateCcw' },
+  { label: 'Щётки задние', icon: 'RotateCw' },
+  { label: 'Реагенты', icon: 'FlaskConical' },
+  { label: 'Поливомойка', icon: 'Droplets' },
+  { label: 'Бак 500 л', icon: 'Container' },
 ];
 
 const advantages = [
@@ -198,11 +198,11 @@ export default function Index() {
             <p className="text-gray-400 text-xs uppercase tracking-widest mb-4 text-center">Навесное оборудование</p>
             <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
               {attachments.map(item => (
-                <div key={item.label} className="flex flex-col items-center gap-1.5">
-                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center text-xl">
-                    {item.icon}
+                <div key={item.label} className="flex flex-col items-center gap-2 group cursor-default">
+                  <div className="w-14 h-14 bg-gray-800 border border-gray-700 group-hover:border-orange-500 rounded-xl flex items-center justify-center transition-colors duration-200">
+                    <Icon name={item.icon} size={26} fallback="Settings" className="text-orange-400 group-hover:text-orange-300 transition-colors duration-200" />
                   </div>
-                  <span className="text-gray-400 text-xs text-center leading-tight">{item.label}</span>
+                  <span className="text-gray-400 text-xs text-center leading-tight group-hover:text-gray-200 transition-colors duration-200">{item.label}</span>
                 </div>
               ))}
             </div>
